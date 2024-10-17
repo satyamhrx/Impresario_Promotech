@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission</title>
+</head>
+
+<body>
+  <h1>Form Submission</h1>
+  
+  <form action="/submit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required pattern="\d{10}"><br><br>
+
+    <label for="termsAndConditions">Terms and Conditions:</label>
+    <input type="checkbox" id="termsAndConditions" name="termsAndConditions" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <% if (errors && Object.keys(errors).length > 0) { %>
+    <div style="color:red;">
+      <h3>Form Errors:</h3>
+      <ul>
+        <% for (const [key, value] of Object.entries(errors)) { %>
+          <li><%= value %></li>
+        <% } %>
+      </ul>
+    </div>
+  <% } %>
+
+</body>
+</html>
